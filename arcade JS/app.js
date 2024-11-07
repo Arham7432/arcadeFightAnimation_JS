@@ -1,10 +1,10 @@
-var userinput1 = prompt("Input First Player's name")
-var userinput2 = prompt("Input Second Player's name")
+var userinput1 = prompt("Input First Player's name");
+var userinput2 = prompt("Input Second Player's name");
 
 var p1 = document.querySelector("#n1");
 var p2 = document.querySelector("#n2");
-p1.innerHTML = userinput1
-p2.innerHTML = userinput2
+p1.innerHTML = userinput1;
+p2.innerHTML = userinput2;
 
 var timeLeft = 60;
 var timerElement = document.querySelector("#timer");
@@ -42,10 +42,17 @@ function startMove(event) {
     }
 
     if (event.keyCode === 88) {
-        venom.src = "images/vnm-super.gif";
-        venom.style.width = "1000px";
-        // venom.style.height = "255px";
+        venom.src = "images/vnm-supers.gif";
+        venom.style.width = "300px";
+        venom.style.height = "300px";
+        spiderMan.style.display = "none";
 
+        setTimeout(function () {
+            venom.src = "images/vnm-stance.gif";
+            venom.style.width = "200px";
+            venom.style.height = "200px";
+            spiderMan.style.display = "block";
+        }, 5000);
     }
 
     if (event.keyCode === 75) {
@@ -87,8 +94,7 @@ function stopMove(event) {
         clearInterval(venomMovingInterval);
         venomMovingInterval = null;
         venom.src = "images/vnm-stance.gif";
-        venom.style.width = "200px"
-
+        venom.style.width = "200px";
     }
 
     if ((event.keyCode === 37 || event.keyCode === 39) && spiderMovingInterval) {
